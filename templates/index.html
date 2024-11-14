@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Account Prediction</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Fake Account Prediction</h2>
+        <form action="/predict" method="POST">
+            
+            <label>Username Length:</label>
+            <input type="number" name="username_length" required>
+            
+            <label>Username Has Number (1 for Yes, 0 for No):</label>
+            <input type="number" name="username_has_number" min="0" max="1" required>
+            
+            <label>Full Name Has Number (1 for Yes, 0 for No):</label>
+            <input type="number" name="full_name_has_number" min="0" max="1" required>
+            
+            <label>Full Name Length:</label>
+            <input type="number" name="full_name_length" required>
+            
+            <label>Is Private (1 for Yes, 0 for No):</label>
+            <input type="number" name="is_private" min="0" max="1" required>
+            
+            <label>Is Joined Recently (1 for Yes, 0 for No):</label>
+            <input type="number" name="is_joined_recently" min="0" max="1" required>
+            
+            <label>Has Channel (1 for Yes, 0 for No):</label>
+            <input type="number" name="has_channel" min="0" max="1" required>
+            
+            <label>Is Business Account (1 for Yes, 0 for No):</label>
+            <input type="number" name="is_business_account" min="0" max="1" required>
+            
+            <label>Has Guides (1 for Yes, 0 for No):</label>
+            <input type="number" name="has_guides" min="0" max="1" required>
+            
+            <label>Has External URL (1 for Yes, 0 for No):</label>
+            <input type="number" name="has_external_url" min="0" max="1" required>
+            
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if rf_result and lr_result %}
+        <div class="result">
+            <h3>Random Forest Result: {{ rf_result }}</h3>
+            <h3>Logistic Regression Result: {{ lr_result }}</h3>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
