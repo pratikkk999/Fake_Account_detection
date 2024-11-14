@@ -166,7 +166,6 @@ tensorboard==2.17.1
 tensorboard-data-server==0.7.2
 tensorflow==2.17.0
 tensorflow-model-optimization==0.8.0
-tensorflow-serving-api==2.5.0
 termcolor==2.4.0
 terminado==0.18.0
 threadpoolctl==3.5.0
